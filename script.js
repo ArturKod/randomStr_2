@@ -1,5 +1,6 @@
 
 
+
 document.forms.myForm.addEventListener('submit', function() {
     event.preventDefault();
     let count = document.querySelector('#count').value;
@@ -27,16 +28,25 @@ function myReset() {
         document.querySelector('#yourVers').checked = false;
         document.querySelector('#myResult').hidden = true; 
         document.querySelector('#button').disabled = false;
+    } else {
+        document.querySelector('#button').disabled = true;
     }
 }
 
 function create() {
-    document.querySelector('#isLower').checked = false;
-    document.querySelector('#isUpper').checked = false;
-    document.querySelector('#isNumber').checked = false;
-    document.querySelector('#isSymb').checked = false;
-    document.querySelector('#button').disabled = false;
-    document.querySelector('#myResult').hidden = false;
+    if(document.querySelector('#yourVers').checked == true) {
+        document.querySelector('#isLower').checked = false;
+        document.querySelector('#isUpper').checked = false;
+        document.querySelector('#isNumber').checked = false;
+        document.querySelector('#isSymb').checked = false;
+    
+        document.querySelector('#button').disabled = false;
+        document.querySelector('#myResult').hidden = false;
+    } else {
+        document.querySelector('#button').disabled = true;
+        document.querySelector('#myResult').hidden = true; 
+    }
+
 }
 function generationString(count, isNumber1, IsUpper1, IsLower1, isSymb1, yourVers1) {
     let str = "";
